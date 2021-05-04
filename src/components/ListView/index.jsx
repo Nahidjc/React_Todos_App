@@ -34,20 +34,20 @@ ListItem.prototype = {
 const ListView = ({ todos, toggleSelect, toggleComplete }) => {
   return (
     <ListGroup>
-      {todos.map((todo) => {
+      {todos.map((todo) => (
         <ListItem
           key={todo.id}
           todo={todo}
           toggleSelect={toggleSelect}
           toggleComplete={toggleComplete}
-        />;
-      })}
+        />
+      ))}
     </ListGroup>
   );
 };
 
 ListView.prototype = {
-  todo: PropTypes.object.isRequired,
+  todos: PropTypes.object.isRequired,
   toggleSelect: PropTypes.func.isRequired,
   toggleComplete: PropTypes.func.isRequired,
 };
