@@ -35,6 +35,7 @@ class Todos extends Component {
     todo.isSelect = !todo.isSelect;
     this.setState({ todos });
   };
+
   toggleComplete = (todoId) => {
     const todos = [...this.state.todos];
     const todo = todos.find((t) => t.id === todoId);
@@ -47,7 +48,12 @@ class Todos extends Component {
       isOpenTodoForm: !this.state.isOpenTodoForm,
     });
   };
-  handleSearch = () => {};
+
+  handleSearch = (value) => {
+    this.setState({
+      searchTerm: value,
+    });
+  };
 
   handleFilter = () => {};
   changeView = (event) => {
@@ -55,19 +61,27 @@ class Todos extends Component {
       view: event.target.value,
     });
   };
+
+  performSearch = () => {
+    return this.state.todos.filter((todo) =>
+      todo.text.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+    );
+  };
+
   clearSelected = () => {};
   clearCompleted = () => {};
   reset = () => {};
   getView = () => {
+    let todos = this.performSearch();
     return this.state.view === "list" ? (
       <ListView
-        todos={this.state.todos}
+        todos={todos}
         toggleSelect={this.toggleSelect}
         toggleComplete={this.toggleComplete}
       />
     ) : (
       <TableView
-        todos={this.state.todos}
+        todos={todos}
         toggleSelect={this.toggleSelect}
         toggleComplete={this.toggleComplete}
       />
