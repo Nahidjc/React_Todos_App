@@ -51,5 +51,6 @@ SearchPanel.propTypes = {
   clearCompleted: PropTypes.func.isRequired,
   view: PropTypes.string.isRequired,
   reset: PropTypes.func.isRequired,
+  selectButton: PropTypes.func.isRequired,
 };
 export default Controller;

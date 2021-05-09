@@ -83,9 +83,23 @@ class Todos extends Component {
     }
   };
 
-  clearSelected = () => {};
-  clearCompleted = () => {};
-  reset = () => {};
+  clearSelected = () => {
+    const todos = this.state.todos.filter((todo) => !todo.isSelect);
+    this.setState({ todos });
+  };
+  clearCompleted = () => {
+    const todos = this.state.todos.filter((todo) => !todo.isComplete);
+    this.setState({ todos });
+  };
+
+  reset = () => {
+    this.setState({
+      filter: "all",
+      searchTerm: "",
+      view: "list",
+      isOpenTodoForm: false,
+    });
+  };
 
   getView = () => {
     let todos = this.performSearch();
@@ -131,20 +145,7 @@ class Todos extends Component {
           reset={this.reset}
           view={this.state.view}
         />
-        {/* <div>
-          <ListView
-            todos={this.state.todos}
-            toggleSelect={this.toggleSelect}
-            toggleComplete={this.toggleComplete}
-          />
-        </div>
-        <div>
-          <TableView
-            todos={this.state.todos}
-            toggleSelect={this.toggleSelect}
-            toggleComplete={this.toggleComplete}
-          />
-        </div> */}
+
         <div>{this.getView()}</div>
         <Modal isOpen={this.state.isOpenTodoForm} toggle={this.toggleForm}>
           <ModalHeader toggle={this.toggleForm}>Create New Todo</ModalHeader>
