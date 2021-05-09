@@ -1,7 +1,7 @@
 import React from "react";
 import { CustomInput, Label } from "reactstrap";
 import PropTypes from "prop-types";
-const ViewControll = ({ view, changeView }) => {
+const ViewControll = ({ view, changeView }) => (
   <div className="d-flex">
     <Label for="list-view" className="mr-4">
       <CustomInput
@@ -27,8 +27,8 @@ const ViewControll = ({ view, changeView }) => {
       />
       Table View
     </Label>
-  </div>;
-};
+  </div>
+);
 
 ViewControll.propTypes = {
   view: PropTypes.string.isRequired,

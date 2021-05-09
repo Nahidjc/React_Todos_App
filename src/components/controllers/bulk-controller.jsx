@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button, ButtonGroup } from "reactstrap";
 
-const BulkController = ({ clearSelected, clearCompleted, reset }) => {
+const BulkController = ({ clearSelected, clearCompleted, reset }) => (
   <ButtonGroup>
     <Button color="danger" onClick={clearSelected}>
       Clear Selected
@@ -13,8 +13,8 @@ const BulkController = ({ clearSelected, clearCompleted, reset }) => {
     <Button color="danger" onClick={reset}>
       Reset
     </Button>
-  </ButtonGroup>;
-};
+  </ButtonGroup>
+);
 
 BulkController.propTypes = {
   clearCompleted: PropTypes.func.isRequired,
