@@ -15,6 +15,7 @@ const Controller = ({
   clearSelected,
   clearCompleted,
   reset,
+  selectButton,
 }) => (
   <div>
     <SearchPanel
@@ -24,7 +25,10 @@ const Controller = ({
     />
     <Row className="my-4">
       <Col md={{ size: 4 }}>
-        <FilterController handleFilter={handleFilter} />
+        <FilterController
+          handleFilter={handleFilter}
+          selectButton={selectButton}
+        />
       </Col>
       <Col md={{ size: 4 }}>
         <ViewControll view={view} changeView={changeView} />
@@ -51,6 +55,6 @@ SearchPanel.propTypes = {
   clearCompleted: PropTypes.func.isRequired,
   view: PropTypes.string.isRequired,
   reset: PropTypes.func.isRequired,
-  selectButton: PropTypes.func.isRequired,
+  selectButton: PropTypes.string.isRequired,
 };
 export default Controller;

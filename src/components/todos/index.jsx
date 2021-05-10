@@ -29,6 +29,7 @@ class Todos extends Component {
     searchTerm: "",
     view: "list",
     filter: "all",
+    selectButton: "all",
   };
   toggleSelect = (todoId) => {
     const todos = [...this.state.todos];
@@ -57,7 +58,7 @@ class Todos extends Component {
   };
 
   handleFilter = (filter) => {
-    this.setState({ filter: filter });
+    this.setState({ filter: filter, selectButton: filter });
   };
 
   changeView = (event) => {
@@ -144,6 +145,7 @@ class Todos extends Component {
           clearCompleted={this.clearCompleted}
           reset={this.reset}
           view={this.state.view}
+          selectButton={this.state.selectButton}
         />
 
         <div>{this.getView()}</div>
