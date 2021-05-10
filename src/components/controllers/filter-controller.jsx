@@ -7,21 +7,21 @@ const FilterController = ({ handleFilter, selectButton }) => {
   return (
     <ButtonGroup>
       <Button
-        className={selectButton === "all" ? "active" : ""}
+        className={selectButton === "all" ? "btn-success" : "btn-light"}
         onClick={() => handleFilter("all")}
         key="all"
       >
         All
       </Button>
       <Button
-        className={selectButton === "running" ? "active" : ""}
+        className={selectButton === "running" ? "btn-success" : "btn-light"}
         onClick={() => handleFilter("running")}
         key="running"
       >
         Running
       </Button>
       <Button
-        className={selectButton === "completed" ? "active" : ""}
+        className={selectButton === "completed" ? "btn-success" : "btn-light"}
         onClick={() => handleFilter("completed")}
         key="completed"
       >
